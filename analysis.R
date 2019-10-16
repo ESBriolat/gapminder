@@ -12,3 +12,9 @@ output_model<-coef(model)$continent
 lines_data  <-  data %>% mutate(predicted = predict(model)) %>% ddply(.(continent) , summarise_data)
 makeFigure(data, lines_data)
 
+#with drake, this can be replaced by:
+source('R/packages.R')
+source('R/functions.R')
+source('R/plan.R')
+
+make(plan)
